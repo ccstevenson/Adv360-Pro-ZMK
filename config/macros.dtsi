@@ -38,5 +38,11 @@ macro_em_dash: macro_em_dash {
     compatible = "zmk,behavior-macro";
     label = "macro_em_dash";
     #binding-cells = <0>;
-    bindings = <&kp LALT>, <&kp LSHIFT>, <&kp MINUS>;
+    tap-ms = <0>;
+    wait-ms = <0>;
+    bindings
+        = <&macro_press &kp LALT &kp LSHIFT>     // press LALT and LSHIFT
+        , <&macro_tap &kp MINUS>                 // press MINUS (dash)
+        , <&macro_release &kp LALT &kp LSHIFT>   // release LALT and LSHIFT
+        ;
 };
